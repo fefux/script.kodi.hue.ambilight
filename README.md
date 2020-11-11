@@ -6,8 +6,8 @@ A Kodi add-on that controls Philips Hue lights.
 
 ## Compatibility
 |Kodi v16|Kodi v17+|Kodi v19|
-|--------|---------|
-|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/v16.zip)|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/master.zip)|[download](https://github.com/fefux/script.kodi.hue.ambilight/archive/v19.zip)]
+|--------|---------|--------|
+|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/v16.zip)|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/master.zip)|[download](https://github.com/fefux/script.kodi.hue.ambilight/archive/v19.zip)|
 |Branch "v16"|Branch "master"|Branch "v19"|
 
 ## Light Groups
