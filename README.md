@@ -5,10 +5,10 @@
 A Kodi add-on that controls Philips Hue lights. 
 
 ## Compatibility
-|Kodi v16|Kodi v17+|
+|Kodi v16|Kodi v17+|Kodi v19|
 |--------|---------|
-|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/v16.zip)|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/master.zip)|
-|Branch "v16"|Branch "master"|
+|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/v16.zip)|[download](https://github.com/mpolednik/script.kodi.hue.ambilight/archive/master.zip)|[download](https://github.com/fefux/script.kodi.hue.ambilight/archive/v19.zip)]
+|Branch "v16"|Branch "master"|Branch "v19"|
 
 ## Light Groups
 
@@ -31,7 +31,7 @@ Static lights act opposite to the theater lights -- they are turned on when play
 The add-on requires Kodi add-on "requests".
 
 **Kodi add-on script.module.requests**
-
+Not sure this procedure still relevant
  - download the add-on as a ZIP file from https://github.com/beenje/script.module.requests
   - (click on the green "Clone or download button" then click on the "Download ZIP" link)
  - open Kodi

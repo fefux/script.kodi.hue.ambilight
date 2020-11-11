@@ -4,12 +4,13 @@ import sys
 import time
 
 import xbmc
+import xbmcvfs
 import xbmcaddon
 
 __addon__ = xbmcaddon.Addon()
-__addondir__ = xbmc.translatePath(__addon__.getAddonInfo('profile'))
+__addondir__ = xbmcvfs.translatePath(__addon__.getAddonInfo('profile'))
 __cwd__ = __addon__.getAddonInfo('path')
-__resource__ = xbmc.translatePath(os.path.join(__cwd__, 'resources', 'lib'))
+__resource__ = xbmcvfs.translatePath(os.path.join(__cwd__, 'resources', 'lib'))
 
 sys.path.append(__resource__)
 
@@ -104,8 +105,8 @@ class MyPlayer(xbmc.Player):
         xbmclog('Kodi Hue: In MyPlayer.__init__()')
         xbmc.Player.__init__(self)
 
-    def onPlayBackStarted(self):
-        xbmclog('Kodi Hue: In MyPlayer.onPlayBackStarted()')
+    def onAVStarted(self):
+        xbmclog('Kodi Hue: In MyPlayer.onAVStarted()')
         playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
         self.playlistlen = playlist.size()
         self.playlistpos = playlist.getposition()
