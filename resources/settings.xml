@@ -458,7 +458,7 @@
                         <dependency type="visible" setting="static_start_random">false</dependency>
                     </dependencies>
                 </setting>
-                <setting id="static_start_hue" type="integer" label="30053" help="">
+                <setting id="static_start_sat" type="integer" label="30053" help="">
                     <level>0</level>
                     <default>30</default>
                     <constraints>
