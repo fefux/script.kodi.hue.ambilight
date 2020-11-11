@@ -4,6 +4,7 @@ TESTING_ENV = False
 
 try:
     import xbmc
+    import xbmcgui
     import xbmcaddon
 
     __addon__ = xbmcaddon.Addon()
@@ -26,8 +27,7 @@ def notify(title, msg=''):
     if TESTING_ENV:
         pass
     else:
-        xbmc.executebuiltin('XBMC.Notification({}, {}, 3, {})'.format(
-            title, msg, __icon__))
+        xbmcgui.Dialog().notification(title, msg, __icon__, 3000)
 
 
 def get_version():
