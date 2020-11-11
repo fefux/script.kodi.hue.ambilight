@@ -1,118 +1,532 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-    <category label="1000">
-        <!-- Main SECTION -->
-        <setting type="lsep" label="1000" />
-        <setting id="connected" label="1001" type="bool" enable="false" visible="false" default="false" />
-        <setting id="discover_bridge" type="action" label="1210" action="RunScript(script.kodi.hue.ambilight,action=discover)" />
+<settings version="1">
+    <section id="script.kodi.hue.ambilight">
+        <category id="main" label="30000">
+            <!-- Main SECTION -->
+            <group id="1" label="30000">
+                <setting id="connected" label="" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <visible>false</visible>
+                    <enable>false</enable>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="discover_bridge" type="action" label="30006" help="">
+                    <level>0</level>
+                    <data>RunScript(script.kodi.hue.ambilight,action=discover)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+            <!-- Grouping -->
+            <group id="2" label="30001">
+                <setting id="setup_theater_lights" type="action" label="30002" help="">
+                    <level>0</level>
+                    <data>RunScript(script.kodi.hue.ambilight,action=setup_theater_lights)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="enable" operator="!is" setting="connected">false</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="setup_ambilight_lights" type="action" label="30003" help="">
+                    <level>0</level>
+                    <data>RunScript(script.kodi.hue.ambilight,action=setup_ambilight_lights)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="enable" operator="!is" setting="connected">false</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="setup_static_lights" type="action" label="30004" help="">
+                    <level>0</level>
+                    <data>RunScript(script.kodi.hue.ambilight,action=setup_static_lights)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="enable" operator="!is" setting="connected">false</dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <!-- Bridge -->
+            <group id="3" label="30005">
+                <setting id="bridge_ip" type="string" label="30007" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <enable>false</enable>
+                    <control type="edit" format="string">
+                        <heading>30007</heading>
+                    </control>
+                </setting>
+                <setting id="bridge_user" type="string" label="30008" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <enable>false</enable>
+                    <control type="edit" format="string">
+                        <heading>30008</heading>
+                    </control>
+                </setting>
+                <setting id="ambilight_group" label="30100" type="string" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string">
+                        <heading>30100</heading>
+                    </control>
+                </setting>
+                <setting id="theater_group" label="30100" type="string" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string">
+                        <heading>30100</heading>
+                    </control>
+                </setting>
+                <setting id="theater_subgroup" label="30100" type="string" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string">
+                        <heading>30100</heading>
+                    </control>
+                </setting>
+                <setting id="static_group" label="30100" type="string" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string">
+                        <heading>30100</heading>
+                    </control>
+                </setting>
+            </group>
 
-        <!-- Grouping -->
-        <setting type="lsep" label="1100" />
-        <setting id="setup_theater_lights" type="action" enable="!eq(-3,false)" label="1120" action="RunScript(script.kodi.hue.ambilight,action=setup_theater_lights)" />
-        <setting id="setup_ambilight_lights" type="action" enable="!eq(-4,false)" label="1130" action="RunScript(script.kodi.hue.ambilight,action=setup_ambilight_lights)" />
-        <setting id="setup_static_lights" type="action" enable="!eq(-5,false)" label="1140" action="RunScript(script.kodi.hue.ambilight,action=setup_static_lights)" />
-        <!-- Bridge -->
-        <setting type="lsep" label="1200" />
-        <setting id="bridge_ip" type="text" label="1220" enable="false" default="" />
-        <setting id="bridge_user" type="text" label="1230" enable="false" default="" />
+            <!-- Reset -->
+            <group id="4" label="30009">
+                <setting id="reset_settings" type="action" label="30010" help="">
+                    <level>0</level>
+                    <data>RunScript(script.kodi.hue.ambilight,action=reset_settings)</data>
+                    <control type="button" format="action">
+                        <close>true</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
 
-        <setting id="ambilight_group" label="1300" type="text" visible="false" default="" />
-        <setting id="theater_group" label="1300" type="text" visible="false" default="" />
-        <setting id="theater_subgroup" label="1300" type="text" visible="false" default="" />
-        <setting id="static_group" label="1300" type="text" visible="false" default="" />
-        <!-- Reset -->
-        <setting type="lsep" label="1400" />
-        <setting id="reset_settings" type="action" label="1410" action="RunScript(script.kodi.hue.ambilight,action=reset_settings)" option="close" />
-    </category>
+        <category id="theater" label="30011">
+            <!-- Theater -->
+            <!-- <group id="5" label="30011"></group> -->
 
-    <category label="2000">
-        <!-- Theater -->
-        <setting type="lsep" label="2000" />
+            <!-- Global -->
+            <group id="6" label="30012">
+                <setting id="setup_theater_subgroup" type="action" label="30013" help="">
+                    <level>0</level>
+                    <data>RunScript(script.kodi.hue.ambilight,action=setup_theater_subgroup)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                </setting>
+                <setting id="dim_time" label="30014" type="number" help="">
+                    <level>0</level>
+                    <default>4</default>
+                    <constraints>
+                        <minimum>0.0</minimum>
+                        <step>0.5</step>
+                        <maximum>10</maximum>
+                    </constraints>
+                    <control type="slider" format="number">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+                <setting id="proportional_dim_time" label="30015" type="boolean" help="30016">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+            </group>
 
-        <!-- Global -->
-        <setting type="lsep" label="2100" />
-        <setting id="setup_theater_subgroup" type="action" label="2105" action="RunScript(script.kodi.hue.ambilight,action=setup_theater_subgroup)" />
-        <setting id="dim_time" label="2110" type="slider" default="4" range="0,0.5,10" option="float" />
-        <setting id="proportional_dim_time" label="2120" type="bool" default="true" />
-        <setting id="propritional_explainer" type="lsep" label="2130" visible="eq(-1,true)" subsetting="true" />
+            <!-- Playback Start -->
+            <group id="7" label="30017">
+                <setting id="theater_start_bri_override" label="30018" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="theater_start_bri" type="integer" label="30019" help="">
+                    <level>0</level>
+                    <default>30</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="theater_start_bri_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
 
-        <!-- Playback Start -->
-        <setting type="lsep" label="2200" />
-        <setting id="theater_start_bri_override" label="2210" type="bool" default="false" />
-        <setting id="theater_start_bri" label="2220" visible="eq(-1,true)" type="slider" default="30" range="0,5,254" option="int" />
+            <!-- Playback Pause -->
+            <group id="8" label="30020">
+                <setting id="theater_pause_dim_subgroup" label="30021" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="theater_pause_bri_override" label="30022" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="theater_pause_bri" type="integer" label="30023" help="">
+                    <level>0</level>
+                    <default>150</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="theater_pause_bri_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
 
-        <!-- Playback Pause -->
-        <setting type="lsep" label="2300" />
-        <setting id="theater_pause_dim_subgroup" label="2305" type="bool" default="false" />
-        <setting id="theater_pause_bri_override" label="2310" type="bool" default="false" />
-        <setting id="theater_pause_bri" label="2320" visible="eq(-1,true)" type="slider" default="150" range="0,5,254" option="int" />
+            <!-- Playback Stop -->
+            <group id="9" label="30020">
+                <setting id="theater_stop_bri_override" label="30025" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="theater_stop_bri" type="integer" label="30026" help="">
+                    <level>0</level>
+                    <default>150</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="theater_stop_bri_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
+        </category>
 
-        <!-- Playback Stop -->
-        <setting type="lsep" label="2400" />
-        <setting id="theater_stop_bri_override" label="2410" type="bool" default="false" />
-        <setting id="theater_stop_bri" label="2420" visible="eq(-1,true)" type="slider" default="150" range="0,5,254" option="int" />
-    </category>
+        <category id="ambilight" label="30027">
+            <!--Ambilight -->
+            <!-- <group id="10" label="30027"></group> -->
 
-    <category label="3000">
-        <!--Ambilight -->
-        <setting type="lsep" label="3000" />
+            <!-- Global Settings-->
+            <group id="11" label="30028">
+                <setting id="ambilight_min" type="integer" label="30029" help="">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+                <setting id="ambilight_max" type="integer" label="30030" help="">
+                    <level>0</level>
+                    <default>90</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                </setting>
 
-        <!-- Global Settings-->
-        <setting type="lsep" label="3100" />
-        <setting id="ambilight_min" label="3110" type="slider" default="0" range="0,5,254" option="int" />
-        <setting id="ambilight_max" label="3120" type="slider" default="90" range="0,5,254" option="int" />
+                <setting id="ambilight_start_dim_enable" label="30031" type="boolean" help="">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+            </group>
 
-        <setting id="ambilight_start_dim_enable" label="3130" type="bool" default="true" />
+            <!--Thresholds-->
+            <group id="12" label="30032">
+                <setting id="ambilight_threshold_value" label="30033" type="number" help="">
+                    <level>0</level>
+                    <default>0.25</default>
+                    <constraints>
+                        <minimum>0.0</minimum>
+                        <step>0.01</step>
+                        <maximum>1</maximum>
+                    </constraints>
+                    <control type="slider" format="number">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+                <setting id="ambilight_threshold_saturation" label="30034" type="number" help="">
+                    <level>0</level>
+                    <default>0.33</default>
+                    <constraints>
+                        <minimum>0.0</minimum>
+                        <step>0.01</step>
+                        <maximum>1</maximum>
+                    </constraints>
+                    <control type="slider" format="number">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+            </group>
 
-        <!--Thresholds-->
-        <setting type="lsep" label="3200" />
-        <setting id="ambilight_threshold_value" label="3210" type="slider" default="0.25" range="0,0.01,1" option="float" />
-        <setting id="ambilight_threshold_saturation" label="3220" type="slider" default="0.33" range="0,0.01,1" option="float" />
+            <!--Color-->
+            <group id="13" label="30035">
+                <setting id="color_bias" type="integer" label="30036" help="30037">
+                    <level>0</level>
+                    <default>18</default>
+                    <constraints>
+                        <minimum>6</minimum>
+                        <step>3</step>
+                        <maximum>36</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+            </group>
 
-        <!--Color-->
-        <setting type="lsep" label="3300" />
-        <setting id="color_bias" label="3310" type="slider" default="18" range="6,3,36" option="int" />
-        <setting label="3320" type="lsep" subsetting="true" /> <!--Color Bias Explainer-->
+            <!-- Playback Start -->
+            <group id="14" label="30038">
+                <setting id="ambilight_start_dim_override" label="30039" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_start_dim_enable">true</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="ambilight_start_dim" type="integer" label="30040" help="">
+                    <level>0</level>
+                    <default>30</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_start_dim_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
 
-        <!-- Playback Start -->
-        <setting type="lsep" label="3400" />
-        <setting id="ambilight_start_dim_override" label="3420" visible="eq(-8,true)" type="bool" default="false" />
-        <setting id="ambilight_start_dim" label="3430" visible="eq(-1,true)" type="slider" default="30" range="0,5,254" option="int" />
+            <!-- Playback Pause -->
+            <group id="15" label="30041">
+                <setting id="ambilight_pause_bri_override" label="30042" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_start_dim_enable">true</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="ambilight_pause_bri" type="integer" label="30043" help="">
+                    <level>0</level>
+                    <default>150</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_pause_bri_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
 
-        <!-- Playback Pause -->
-        <setting type="lsep" label="3500" />
-        <setting id="ambilight_pause_bri_override" label="3510" visible="eq(-11,true)"  type="bool" default="false" />
-        <setting id="ambilight_pause_bri" label="3520" visible="eq(-1,true)" type="slider" default="150" range="0,5,254" option="int" />
+            <!-- Playback Stop -->
+            <group id="15" label="30044">
+                <setting id="ambilight_stop_bri_override" label="30045" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_start_dim_enable">true</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="ambilight_stop_bri" type="integer" label="30046" help="">
+                    <level>0</level>
+                    <default>150</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_stop_bri_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
+        </category>
 
-        <!-- Playback Stop -->
-        <setting type="lsep" label="3600" />
-        <setting id="ambilight_stop_bri_override" label="3610" visible="eq(-14,true)" type="bool" default="false" />
-        <setting id="ambilight_stop_bri" label="3620" visible="eq(-1,true)" type="slider" default="150" range="0,5,254" option="int" />
-    </category>
+        <category id="static" label="30047">
+            <!-- Theater -->
+            <!-- <group id="10" label="30047"></group> -->
 
-    <category label="4000">
-        <!-- Theater -->
-        <setting type="lsep" label="4000" />
+            <!-- Playback Start -->
+            <group id="16" label="30048">
+                <setting id="static_start_random" label="30049" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                    <dependencies>
+                        <dependency type="visible" setting="ambilight_start_dim_enable">
+                            <and>
+                                <condition setting="static_start_hue">false</condition>
+                                <condition setting="static_start_sat_override">false</condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="static_start_hue_override" label="30050" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                    <dependencies>
+                        <dependency type="visible" setting="static_start_random">false</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="static_start_hue" type="integer" label="30051" help="">
+                    <level>0</level>
+                    <default>30</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>100</step>
+                        <maximum>65535</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="static_start_hue_override">true</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="static_start_sat_override" label="30052" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                    <dependencies>
+                        <dependency type="visible" setting="static_start_random">false</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="static_start_hue" type="integer" label="30053" help="">
+                    <level>0</level>
+                    <default>30</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="static_start_sat_override">true</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="static_start_bri_override" label="30054" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="static_start_bri" type="integer" label="30055" help="">
+                    <level>0</level>
+                    <default>100</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>5</step>
+                        <maximum>254</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="static_start_bri_override">true</dependency>
+                    </dependencies>
+                </setting>
+            </group>
+        </category>
 
-        <!-- Playback Start -->
-        <setting type="lsep" label="4100" />
-        <setting id="static_start_random" label="4105" type="bool" visible="eq(1,false) + eq(3,false)" default="false" />
-        <setting id="static_start_hue_override" label="4110" visible="eq(-1,false)" type="bool" default="false" />
-        <setting id="static_start_hue" label="4120" visible="eq(-1,true)" type="slider" default="30" range="0,100,65535" option="int" />
-        <setting id="static_start_sat_override" label="4130" visible="eq(-3,false)" type="bool" default="false" />
-        <setting id="static_start_sat" label="4140" visible="eq(-1,true)" type="slider" default="30" range="0,5,254" option="int" />
-        <setting id="static_start_bri_override" label="4150" type="bool" default="false" />
-        <setting id="static_start_bri" label="4160" visible="eq(-1,true)" type="slider" default="100" range="0,5,254" option="int" />
-    </category>
-
-    <category label="5000">
-        <!--Advanced SECTION-->
-        <setting type="lsep" label="5000" />
-        <!--Miscellaneous-->
-        <setting type="lsep" label="5100" />
-        <setting id="misc_initialflash" type="bool" label="5110" default="false" />
-        <setting id="misc_disableshort" type="bool" label="5120" default="false" />
-        <setting id="misc_disableshort_threshold" type="number" label="5130" default="120" enable="eq(-1,true)" />
-        <setting id="force_light_on" type="bool" label="5140" default="false" />
-    </category>
+        <category id="advanced" label="30056">
+            <!--Advanced SECTION-->
+            <!-- <group label="30056"></group> -->
+            <!--Miscellaneous-->
+            <group id="17" label="30057">
+                <setting id="misc_initialflash" label="30058" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="misc_disableshort" label="30059" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="misc_disableshort_threshold" type="integer" label="30060" help="">
+                    <level>0</level>
+                    <default>120</default>
+                    <control type="edit" format="integer">
+                        <heading>30060</heading>
+                    </control>
+                    <dependencies>
+                        <dependency type="enable" setting="misc_disableshort">true</dependency>
+                    </dependencies>
+                </setting>
+                <setting id="force_light_on" label="30061" type="boolean" help="">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+            </group>
+        </category>
+    </section>
 </settings>
