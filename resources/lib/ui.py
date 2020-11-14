@@ -37,9 +37,14 @@ def discover_hue_bridge(hue):
     hue_ip = bridge.discover()
     if hue_ip is not None:
         notify("Hue Bridge Discovery", "Found bridge at: %s" % hue_ip)
-        username = bridge.create_user(hue_ip)
+        is_entertainment_compatible = bridge.check_entertainment_compatibility(hue_ip)
+        xbmclog('Kodi Hue: is entertainment capable = {}'.format(is_entertainment_compatible))
+        username, userkey = bridge.create_user(hue_ip, is_entertainment_compatible)
+        xbmclog('Kodi Hue: user & key = {} - {}'.format(username, userkey))
         hue.settings.update(bridge_ip=hue_ip)
         hue.settings.update(bridge_user=username)
+        hue.settings.update(bridge_key=userkey)
+        hue.settings.update(is_entertainment_capable=is_entertainment_compatible)
         hue.settings.update(connected="true")
         hue.connected = True
         notify("Hue Bridge Discovery", "Finished")

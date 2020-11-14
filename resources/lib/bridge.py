@@ -38,10 +38,32 @@ def discover():
 
     return bridge_ip
 
+def _api_version(bridge_ip):
+    req = requests.get('http://{}/api/config'.format(bridge_ip))
+    res = req.json()
 
-def create_user(bridge_ip, notify=True):
+    version = None
+    try:
+        version = res["apiversion"]
+    except KeyError:
+        pass
+    
+    return version
+
+def check_entertainment_compatibility(bridge_ip):
+    api_version = _api_version(bridge_ip)
+    if api_version is not None:
+        major, minor, _ = api_version.split('.')
+        return int(major) > 1 or (int(major) >= 1 and int(minor) >= 22)
+    return False
+
+
+def create_user(bridge_ip, is_entertainment_capable=False, notify=True):
     device = 'kodi#ambilight'
-    data = '{{"devicetype": "{}"}}'.format(device)
+    if is_entertainment_capable:
+        data= '{{"devicetype": "{}","generateclientkey":true}}'.format(device)
+    else:
+        data = '{{"devicetype": "{}"}}'.format(device)
 
     res = 'link button not pressed'
     while 'link button not pressed' in res:
@@ -54,8 +76,12 @@ def create_user(bridge_ip, notify=True):
 
     res = req.json()
     username = res[0]['success']['username']
+    if is_entertainment_capable:
+        userkey = res[0]['success']['clientkey']
+    else:
+        userkey = ""
 
-    return username
+    return username, userkey
 
 
 def get_lights(bridge_ip, username):

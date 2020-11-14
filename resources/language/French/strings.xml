@@ -12,6 +12,8 @@
     <string id="1210">Découvrir Hue Bridge</string>
     <string id="1220">Ip du Bridge</string>
     <string id="1230">Utilisateur du Bridge</string>
+    <string id="1230">Clé du Bridge</string>
+    <string id="1240">Gère le mode entertainment</string>
 
     <string id="1400">ATTENTION: REINITIALISE TOUS LES PARAMETRES</string>
     <string id="1410">Réinitialiser tous les paramètres (requiert de désactiver/réactiver le plugin)</string>

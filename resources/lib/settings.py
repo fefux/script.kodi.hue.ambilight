@@ -15,6 +15,8 @@ class Settings():
 
         self.bridge_ip = __addon__.getSetting("bridge_ip")
         self.bridge_user = __addon__.getSetting("bridge_user")
+        self.bridge_key = __addon__.getSetting("bridge_key")
+        self.is_entertainment_capable = __addon__.getSetting("is_entertainment_capable") == "true"
 
         self.connected = __addon__.getSetting("connected") == "true"
         self.ambilight_group = __addon__.getSetting("ambilight_group")
