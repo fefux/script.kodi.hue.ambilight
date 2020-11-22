@@ -23,6 +23,8 @@
 
     <string id="2100">Réglages généraux</string>
     <string id="2105">Configurer le Sous-Groupe Cinéma</string>
+    <string id="2106">Utiliser entertainment</string>
+    <string id="2107">Paramétrer entertainment</string>
     <string id="2110">Temps d'Atténuation</string>
     <string id="2120">Temps d'Atténuation Proportionnel</string>
     <string id="2130">Exemple: Prend 70% de temps de transition si Atténuation 70%</string>

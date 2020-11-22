@@ -1,4 +1,5 @@
 import sys
+import json
 
 import xbmcaddon
 
@@ -24,6 +25,8 @@ class Settings():
         self.theater_subgroup = __addon__.getSetting("theater_subgroup")
         self.static_group = __addon__.getSetting("static_group")
 
+        self.use_entertainment = __addon__.getSetting("use_entertainment") == "true"
+        self.entertainment_configuration = __addon__.getSetting("entertainment_configuration")
         self.dim_time = int(float(__addon__.getSetting("dim_time"))*10)
         self.proportional_dim_time = __addon__.getSetting("proportional_dim_time") == "true"
 
@@ -71,10 +74,22 @@ class Settings():
         if self.ambilight_min > self.ambilight_max:
             self.update(ambilight_min=self.ambilight_max)
 
+        if self.entertainment_configuration:
+            self.entertainment_configuration = json.loads(self.entertainment_configuration)
+
     def update(self, **kwargs):
         self.__dict__.update(**kwargs)
         for k, v in kwargs.items():
-            __addon__.setSetting(k, str(v))
+            if k == "entertainment_configuration":
+                __addon__.setSetting(k, json.dumps(v))
+            else:
+                __addon__.setSetting(k, str(v))
 
     def __repr__(self):
-        return '<Settings\n{}\n>'.format('\n'.join(['{}={}'.format(key, value) for key, value in self.__dict__.items()]))
+        str_values = []
+        for key, value in self.__dict__.items():
+            if key == "entertainment_configuration":
+                str_values.append('{}={}'.format(key, json.dumps(value)))
+            else:
+                str_values.append('{}={}'.format(key, value))
+        return '<Settings\n{}\n>'.format('\n'.join(str_values))
