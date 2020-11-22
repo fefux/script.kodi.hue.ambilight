@@ -17,7 +17,7 @@
         <setting id="bridge_user" type="text" label="1230" enable="false" default="" />
         <setting id="bridge_key" type="text" label="1240" enable="false" default="" />
         <setting id="is_entertainment_capable" type="bool" label="1250" enable="false" default="false" />
-        <setting id="entertainment_configuration" type="text" label="1260" enable="false" default="{}" />
+        <setting id="entertainment_configuration" type="text" label="1260" visible="false" default="{}" />
 
         <setting id="ambilight_group" label="1300" type="text" visible="false" default="" />
         <setting id="theater_group" label="1300" type="text" visible="false" default="" />

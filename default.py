@@ -97,8 +97,12 @@ class MyMonitor(xbmc.Monitor):
                     self.settings.bridge_ip,
                     self.settings.bridge_user,
                     'Configure lights position',
-                    ','.join([self.settings.ambilight_group])
+                    ','.join([self.settings.ambilight_group]),
+                    self.settings.entertainment_configuration
                 )
+                xbmclog('Kodi hue : ret = {}'.format(ret))
+                if (ret != None):
+                    self.settings.update(entertainment_configuration=ret)
 
 
 class MyPlayer(xbmc.Player):

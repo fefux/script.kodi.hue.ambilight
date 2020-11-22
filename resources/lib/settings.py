@@ -81,7 +81,8 @@ class Settings():
         self.__dict__.update(**kwargs)
         for k, v in kwargs.items():
             if k == "entertainment_configuration":
-                __addon__.setSetting(k, json.dumps(v))
+                v = json.dumps(v)
+                __addon__.setSetting(k, str(v))
             else:
                 __addon__.setSetting(k, str(v))
 
