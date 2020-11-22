@@ -92,6 +92,13 @@ class MyMonitor(xbmc.Monitor):
                 )
                 self.settings.update(static_group=ret)
                 hue.update_controllers()
+            if method == 'Other.start_setup_entertainment_ambilight_lights':
+                ret = ui.configure_entertainment(
+                    self.settings.bridge_ip,
+                    self.settings.bridge_user,
+                    'Configure lights position',
+                    ','.join([self.settings.ambilight_group])
+                )
 
 
 class MyPlayer(xbmc.Player):
@@ -166,6 +173,10 @@ class Hue:
                 )
                 if result:
                     self.connected = True
+                    if self.settings.bridge_key != "":
+                        self.settings.update(is_entertainment_capable="true")
+                    else:
+                        self.settings.update(is_entertainment_capable="false")
                     self.update_controllers()
         elif params['action'] == "discover":
             ui.discover_hue_bridge(self)
@@ -184,6 +195,9 @@ class Hue:
         elif params['action'] == "setup_static_lights":
             xbmc.executebuiltin('NotifyAll({}, {})'.format(
                 __addon__.getAddonInfo('id'), 'start_setup_static_lights'))
+        elif params['action'] == "setup_entertainment_ambilight_lights":
+            xbmc.executebuiltin('NotifyAll({}, {})'.format(
+                __addon__.getAddonInfo('id'), 'start_setup_entertainment_ambilight_lights'))
         else:
             # not yet implemented
             pass
