@@ -1,0 +1,273 @@
+#  Kodi Media Center language file
+#  Addon Name: Hue Ambilight
+#  Addon id: script.kodi.hue.ambilight
+#  Addon Provider: 
+msgid ""
+msgstr ""
+
+"Project-Id-Version: script.kodi.hue.ambilight\n"
+"Report-msgstr-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "General"
+msgstr "Allgemein"
+
+msgctxt "#30001"
+msgid "Light Groups"
+msgstr "Lichtgruppen"
+
+msgctxt "#30002"
+msgid "Setup Theater Lights"
+msgstr "Einstellungen Theaterlicht"
+
+msgctxt "#30003"
+msgid "Setup Ambilight Lights"
+msgstr "Einstellungen Ambilight"
+
+msgctxt "#30004"
+msgid "Setup Static Lights"
+msgstr "Einstellungen Statisches Licht"
+
+msgctxt "#30005"
+msgid "Bridge"
+msgstr "Bridge"
+
+msgctxt "#30006"
+msgid "Discover Hue Bridge"
+msgstr "Hue Bridge suchen"
+
+msgctxt "#30007"
+msgid "Bridge IP"
+msgstr "Bridge IP"
+
+msgctxt "#30008"
+msgid "Bridge User"
+msgstr "Bridge Benutzer"
+
+msgctxt "#30009"
+msgid "WARNING: RESET ALL SETTINGS"
+msgstr "WARNUNG: Alle Einstellungen zurücksetzen"
+
+msgctxt "#30010"
+msgid "Reset all settings (requires disable/re-enable)"
+msgstr "Alle Einstellungen zurücksetzen (erfordert de-/reaktivierung)"
+
+# Theater
+msgctxt "#30011"
+msgid "Theater"
+msgstr "Theater"
+
+msgctxt "#30012"
+msgid "Global Settings"
+msgstr "Globalee Einstellungen"
+
+msgctxt "#30013"
+msgid "Setup Theater Subgroup"
+msgstr "Einstellung Theater Untergruppe"
+
+msgctxt "#30014"
+msgid "Dim Time"
+msgstr "Dim Zeit"
+
+msgctxt "#30015"
+msgid "Proportional Dim Time"
+msgstr "Proportionale Dim Zeit"
+
+msgctxt "#30016"
+msgid "Example: Take 70% of transition time if dimming 70%"
+msgstr "Beispiel: braucht 70% der Übergangszeit, wenn um 70% gedimmt wird"
+
+msgctxt "#30017"
+msgid "Playback Start (or Resume)"
+msgstr "Wiedergabe Start (oder wieder aufnehmen)"
+
+msgctxt "#30018"
+msgid "Override Brightness (default 30)"
+msgstr "Helligkeit überschreiben (standard 30)"
+
+msgctxt "#30019"
+msgid "Choose Brightness"
+msgstr "Helligkeit wählen"
+
+msgctxt "#30020"
+msgid "Playback Pause"
+msgstr "Wiedergabe Pause"
+
+msgctxt "#30021"
+msgid "Only Undim Subgroup"
+msgstr "Nur Untergruppe undimmen"
+
+msgctxt "#30022"
+msgid "Override Brightness (default initial)"
+msgstr "Helligkeit überschreiben (Standard-Initialwert)"
+
+msgctxt "#30023"
+msgid "Choose Brightness"
+msgstr "Wähle Helligkeit"
+
+msgctxt "#30024"
+msgid "Playback Stop"
+msgstr "Wiedergabe Stop"
+
+msgctxt "#30025"
+msgid "Override Brightness (default initial)"
+msgstr "Überschreibe Helligkeit (Standard-Initialwert)"
+
+msgctxt "#30026"
+msgid "Choose Brightness"
+msgstr "Wähle Helligkeit"
+
+# Ambilight
+msgctxt "#30027"
+msgid "Ambilight"
+msgstr "Ambilight"
+
+msgctxt "#30028"
+msgid "Global Settings"
+msgstr "Globale Einstellungen"
+
+msgctxt "#30029"
+msgid "Minimum Brightness"
+msgstr "Minimum Helligkeit"
+
+msgctxt "#30030"
+msgid "Maximum Brightness"
+msgstr "Maximum Helligkeit"
+
+msgctxt "#30031"
+msgid "Enable Dimming"
+msgstr "Aktiviere Dimming"
+
+msgctxt "#30032"
+msgid "Thresholds"
+msgstr "Schwellenwerte"
+
+msgctxt "#30033"
+msgid "Value"
+msgstr "Wert"
+
+msgctxt "#30034"
+msgid "Saturation"
+msgstr "Sättigung"
+
+msgctxt "#30035"
+msgid "Color"
+msgstr "Farbe"
+
+msgctxt "#30036"
+msgid "Bias"
+msgstr "Bias"
+
+msgctxt "#30037"
+msgid "Sensitivity: 6=variety with >1 light, 36=accuracy"
+msgstr "Empfindlichkeit: 6=Abwechslung mit >1 light, 36=Genauigkeit"
+
+msgctxt "#30038"
+msgid "Playback Start (or resume)"
+msgstr "Wiedergabe Start (oder wieder aufnehmen)"
+
+msgctxt "#30039"
+msgid "Override Brightness (default 30)"
+msgstr "Überschreibe Helligkeit (default 30)"
+
+msgctxt "#30040"
+msgid "Choose Brightness"
+msgstr "Wähle Helligkeit"
+
+msgctxt "#30041"
+msgid "Playback Pause"
+msgstr "Wiedergabe Pause"
+
+msgctxt "#30042"
+msgid "Override Brightness (default initial)"
+msgstr "Überschreibe Helligkeit (default initial)"
+
+msgctxt "#30043"
+msgid "Choose Brightness"
+msgstr "Wähle Helligkeit"
+
+msgctxt "#30044"
+msgid "Playback Stop"
+msgstr "Wiedergabe Stop"
+
+msgctxt "#30045"
+msgid "Override Brightness (default initial)"
+msgstr "Überschreibe Helligkeit (default initial)"
+
+msgctxt "#30046"
+msgid "Choose Brightness"
+msgstr "Wähle Helligkeit"
+
+msgctxt "#30047"
+msgid "Static"
+msgstr "Static"
+
+msgctxt "#30048"
+msgid "Playback Start (or resume)"
+msgstr "Wiedergabe Start (or wieder aufnehmen)"
+
+msgctxt "#30049"
+msgid "Random Color"
+msgstr "Random Farbe"
+
+msgctxt "#30050"
+msgid "Override Hue (default initial)"
+msgstr "Überschreibe Hue (default initial)"
+
+msgctxt "#30051"
+msgid "Choose Hue"
+msgstr "Wähle Hue"
+
+msgctxt "#30052"
+msgid "Override Saturation (default initial)"
+msgstr "Überschreibe Sättigung (default initial)"
+
+msgctxt "#30053"
+msgid "Choose Saturation"
+msgstr "Wähle Sättigung"
+
+msgctxt "#30054"
+msgid "Override Brightness (default 100)"
+msgstr "Überschreibe Helligkeit (default 100)"
+
+msgctxt "#30055"
+msgid "Choose Brightness"
+msgstr "Wähle Helligkeit"
+
+# Advanced
+msgctxt "#30056"
+msgid "Advanced"
+msgstr "Erweitert"
+
+msgctxt "#30057"
+msgid "Misc. Settings"
+msgstr "weitere Einstellungen"
+
+msgctxt "#30058"
+msgid "Enable initial flash"
+msgstr "Aktiviere Anfangsblitz"
+
+msgctxt "#30059"
+msgid "Disable for short movies"
+msgstr "Deaktivieren für Kurzfilme"
+
+msgctxt "#30060"
+msgid "Short Movie Threshold (seconds)"
+msgstr "Kurzfilm Schwellenwert (sekunden)"
+
+msgctxt "#30061"
+msgid "Force Light(s) on (even if off)"
+msgstr "Lampe(n) einschalten (auch wenn sie ausgeschaltet ist/sind)"
+
+msgctxt "#30100"
+msgid "Hidden"
+msgstr "Versteckt"
